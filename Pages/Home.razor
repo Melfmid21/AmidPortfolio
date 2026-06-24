@@ -1,0 +1,73 @@
+﻿@page "/"
+@using AmidPortfolio.Components.Sections
+@inject NavigationService NavigationService
+@implements IAsyncDisposable
+
+
+<PageTitle>Home</PageTitle>
+
+<div class="hero-background"></div>
+
+<section id="home" class="hero-section">
+    <HeroSection />
+</section>
+
+<section id="about" class="section" style="padding-bottom:10%;">
+    <AboutSection/>
+</section>
+
+<section id="portfolio" class="section">
+    <PortfolioShowcaseSection/>
+</section>
+
+<section id="contact" class="section">
+    <ContactSection />
+</section>
+
+<style>
+    .hero-section {
+        display: flex;
+        margin-top:7%;
+        min-height: 100vh;
+        scroll-margin-top: 200px;
+    }
+
+    .section {
+    scroll-margin-top: 100px;
+    }
+   
+</style>
+
+@code {
+
+    private DotNetObjectReference<Home>? _objRef;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initializeAOS");
+
+            _objRef = DotNetObjectReference.Create(this);
+
+            await JS.InvokeVoidAsync(
+                "observeSections",
+                _objRef);
+        }
+        else
+        {
+            await JS.InvokeVoidAsync("refreshAOS");
+        }
+    }
+
+    [JSInvokable]
+    public void UpdateActiveSection(string sectionId)
+    {
+        NavigationService.SetActiveSection(sectionId);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        _objRef?.Dispose();
+    }
+}

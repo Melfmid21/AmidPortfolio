@@ -1,0 +1,58 @@
+﻿@using AmidPortfolio.Components.Cards
+@using AmidPortfolio.Models
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-12">
+
+    <MudText Typo="Typo.h3" GutterBottom="true">
+        ProjectsModel
+    </MudText>
+
+    <MudText Typo="Typo.body1" Class="mb-6">
+        Some of the projects I have worked on.
+    </MudText>
+
+    <MudGrid>
+
+        @foreach (var project in ProjectsModel)
+        {
+            <MudItem xs="12" md="6" lg="4">
+              @*   <ProjectCard Project="project" /> *@
+            </MudItem>
+        }
+
+    </MudGrid>
+
+</MudContainer>
+
+@code {
+
+    private List<ProjectModel> ProjectsModel = new()
+    {
+        new()
+        {
+            Title = "Reverse Vending Machine",
+            Description = "ESP32-based recycling reward system that validates recyclable materials and provides incentives.",
+            ImageUrl = "images/projects/autobin.png",
+            Technologies = "ESP32, IoT",
+            GitHubUrl = ""
+        },
+
+        new()
+        {
+            Title = "Engineering Management System",
+            Description = "Blazor Server application used for project management, part ordering, and schedule monitoring.",
+            ImageUrl = "images/projects/autobin-dashboard.png",
+            Technologies = ".NET, Blazor",
+            GitHubUrl = ""
+        },
+
+        new()
+        {
+            Title = "Inventory Receiving System",
+            Description = "QR and barcode receiving system integrated with real-time inventory tracking.",
+            ImageUrl = "images/projects/autobin-redeem.png",
+            Technologies = "Blazor, SQL Server",
+            GitHubUrl = ""
+        }
+    };
+}

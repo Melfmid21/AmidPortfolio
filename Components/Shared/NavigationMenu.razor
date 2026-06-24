@@ -1,0 +1,86 @@
+﻿@using AmidPortfolio.Services
+@using MudBlazor
+@inject ThemeService ThemeService
+@inject IJSRuntime JS
+@implements IDisposable
+
+
+<MudAppBar Elevation="0" Class="custom-appbar">
+
+    <MudContainer MaxWidth="MaxWidth.ExtraLarge">
+
+        <div class="appbar-content">
+
+            <MudText Class="logo-text fw-bold" Typo="Typo.h6">
+                Amid Gigante Jr.
+            </MudText>
+
+            <div class="nav-links">
+                <MudButton Class="@GetClass("home")" OnClick="@(() => Go("home"))">
+                    Home
+                </MudButton>
+
+                <MudButton Class="@GetClass("about")" OnClick="@(() => Go("about"))">
+                    About
+                </MudButton>
+
+                <MudButton Class="@GetClass("portfolio")" OnClick="@(() => Go("portfolio"))">
+                    Portfolio
+                </MudButton>
+
+
+                <MudButton Class="@GetClass("contact")" OnClick="@(() => Go("contact"))">
+                    Contact
+                </MudButton>
+
+              @*   <MudIconButton Icon="@(ThemeService.IsDarkMode
+                                                      ? Icons.Material.Filled.LightMode
+                                              : Icons.Material.Filled.DarkMode)"
+                               Color="Color.Inherit"
+                               OnClick="ToggleTheme" /> *@
+            </div>
+
+        </div>
+
+    </MudContainer>
+
+</MudAppBar>
+
+<style>
+ 
+</style>
+@code {
+    [Parameter] public EventCallback OnToggleTheme { get; set; }
+
+    private void ToggleTheme()
+    {
+        ThemeService.ToggleTheme();
+    }
+
+    protected override void OnInitialized()
+    {
+        NavigationService.OnSectionChanged += HandleSectionChanged;
+    }
+
+    private async Task Go(string id)
+    {
+        await NavigationService.ScrollTo(id);
+    }
+
+    private string GetClass(string section)
+    {
+        return NavigationService.ActiveSection == section
+            ? "active-nav"
+            : "";
+    }
+
+    private void HandleSectionChanged(string section)
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        NavigationService.OnSectionChanged -= HandleSectionChanged;
+    }
+}

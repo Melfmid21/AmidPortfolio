@@ -1,0 +1,34 @@
+﻿@using AmidPortfolio.Components.Shared
+@using AmidPortfolio.Services
+@inject ThemeService ThemeService
+@inherits LayoutComponentBase
+@implements IDisposable
+
+<MudThemeProvider IsDarkMode="@ThemeService.IsDarkMode"
+                  Theme="@ThemeService.CurrentTheme" />
+
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<NavigationMenu OnToggleTheme="ThemeService.ToggleTheme" />
+
+<MudMainContent>
+    @Body
+</MudMainContent>
+
+@code {
+
+
+    protected override void OnInitialized()
+    {
+        ThemeService.OnChange += StateHasChanged;
+       
+    }
+
+    public void Dispose()
+    {
+        ThemeService.OnChange -= StateHasChanged;
+       
+    }
+}

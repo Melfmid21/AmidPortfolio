@@ -1,0 +1,142 @@
+﻿@page "/skills"
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-12">
+
+    <MudText Typo="Typo.h3" GutterBottom="true">
+        Skills & Technologies
+    </MudText>
+
+    <MudText Typo="Typo.body1" Class="mb-6">
+        Technologies and tools I use for web development,
+        backend systems, databases, cloud services, and embedded development.
+    </MudText>
+
+    <MudGrid>
+
+        <MudItem xs="12" md="6">
+
+            <MudPaper Class="pa-6">
+
+                <MudText Typo="Typo.h5" GutterBottom="true">
+                    Backend Development
+                </MudText>
+
+                <MudChipSet T="string">
+                    <MudChip Color="Color.Primary">C#</MudChip>
+                    <MudChip Color="Color.Primary">ASP.NET Core</MudChip>
+                    <MudChip Color="Color.Primary">Entity Framework Core</MudChip>
+                    <MudChip Color="Color.Primary">REST API</MudChip>
+                    <MudChip Color="Color.Primary">LINQ</MudChip>
+                </MudChipSet>
+
+            </MudPaper>
+
+        </MudItem>
+
+        <MudItem xs="12" md="6">
+
+            <MudPaper Class="pa-6">
+
+                <MudText Typo="Typo.h5" GutterBottom="true">
+                    Frontend Development
+                </MudText>
+
+                <MudChipSet T="string">
+                    <MudChip Color="Color.Secondary">Blazor</MudChip>
+                    <MudChip Color="Color.Secondary">HTML</MudChip>
+                    <MudChip Color="Color.Secondary">CSS</MudChip>
+                    <MudChip Color="Color.Secondary">JavaScript</MudChip>
+                    <MudChip Color="Color.Secondary">MudBlazor</MudChip>
+                </MudChipSet>
+
+            </MudPaper>
+
+        </MudItem>
+
+        <MudItem xs="12" md="6">
+
+            <MudPaper Class="pa-6">
+
+                <MudText Typo="Typo.h5" GutterBottom="true">
+                    Database
+                </MudText>
+
+                <MudChipSet T="string">
+                    <MudChip>SQL Server</MudChip>
+                    <MudChip>MySQL</MudChip>
+                    <MudChip>SQLite</MudChip>
+                </MudChipSet>
+
+            </MudPaper>
+
+        </MudItem>
+
+        <MudItem xs="12" md="6">
+
+            <MudPaper Class="pa-6">
+
+                <MudText Typo="Typo.h5" GutterBottom="true">
+                    Embedded & IoT
+                </MudText>
+
+                <MudChipSet T="string">
+                    <MudChip Color="Color.Success">ESP32</MudChip>
+                    <MudChip Color="Color.Success">Arduino</MudChip>
+                    <MudChip Color="Color.Success">Sensors</MudChip>
+                    <MudChip Color="Color.Success">Serial Communication</MudChip>
+                </MudChipSet>
+
+            </MudPaper>
+
+        </MudItem>
+
+    </MudGrid>
+
+    <MudDivider Class="my-8" />
+
+    <!--Professional Experience Meter-->
+    <MudText Typo="Typo.h4" GutterBottom="true">
+        Core Technologies
+    </MudText>
+
+    <MudText>C#</MudText>
+    <MudProgressLinear Value="90" Color="Color.Primary" Class="mb-4" />
+
+    <MudText>ASP.NET Core</MudText>
+    <MudProgressLinear Value="85" Color="Color.Primary" Class="mb-4" />
+
+    <MudText>Blazor</MudText>
+    <MudProgressLinear Value="85" Color="Color.Primary" Class="mb-4" />
+
+    <MudText>SQL Server</MudText>
+    <MudProgressLinear Value="80" Color="Color.Primary" Class="mb-4" />
+
+    <MudText>ESP32</MudText>
+    <MudProgressLinear Value="75" Color="Color.Primary" Class="mb-4" />
+
+
+    <MudDivider Class="my-8" />
+
+    <!--Certifications Section-->
+    <MudText Typo="Typo.h4" GutterBottom="true">
+        Currently Learning
+    </MudText>
+
+    <MudChipSet T="string">
+        <MudChip Color="Color.Info">
+            Advanced Blazor
+        </MudChip>
+
+        <MudChip Color="Color.Info">
+            AWS
+        </MudChip>
+
+        <MudChip Color="Color.Info">
+            Microservices
+        </MudChip>
+
+        <MudChip Color="Color.Info">
+            IoT Systems
+        </MudChip>
+    </MudChipSet>
+</MudContainer>
