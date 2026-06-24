@@ -14,4 +14,5 @@ builder.Services.AddMudServices();
 builder.Services.AddSingleton<ThemeService>();
 builder.Services.AddScoped<NavigationService>();
 builder.Services.AddScoped<NavigationState>();
+builder.Services.AddSingleton<GradientService>();
 await builder.Build().RunAsync();

@@ -11,7 +11,7 @@
 
         <div class="appbar-content">
 
-            <MudText Class="logo-text fw-bold" Typo="Typo.h6">
+            <MudText Class=@($"logo-text fw-bold {GradientService.CurrentGradient}") Typo="Typo.h6">
                 Amid Gigante Jr.
             </MudText>
 
@@ -47,7 +47,11 @@
 </MudAppBar>
 
 <style>
- 
+    .logo-text {
+        font-weight: bold;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 </style>
 @code {
     [Parameter] public EventCallback OnToggleTheme { get; set; }
@@ -60,12 +64,18 @@
     protected override void OnInitialized()
     {
         NavigationService.OnSectionChanged += HandleSectionChanged;
+        GradientService.OnChange += Refresh;
     }
 
     private async Task Go(string id)
     {
         await NavigationService.ScrollTo(id);
     }
+
+    private void Refresh()
+{
+    InvokeAsync(StateHasChanged);
+}
 
     private string GetClass(string section)
     {
@@ -82,5 +92,7 @@
     public void Dispose()
     {
         NavigationService.OnSectionChanged -= HandleSectionChanged;
+        GradientService.OnChange -= Refresh;
     }
+
 }

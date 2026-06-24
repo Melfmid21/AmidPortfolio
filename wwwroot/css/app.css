@@ -2,13 +2,33 @@
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }*/
 html, body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif !important;
+ 
 }
 
 h1, h2, h3, h4, h5, h6 {
     /* font-family: 'Poppins', sans-serif;*/
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif !important;
+
 }
+
+/* Chrome, Edge, Opera */
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient( 180deg, #6366f1, #8b5cf6, #a855f7 );
+    border-radius: 999px;
+}
+
+    body::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient( 180deg, #818cf8, #a78bfa, #c084fc );
+    }
 
 .code-font {
     font-family: 'JetBrains Mono', monospace;

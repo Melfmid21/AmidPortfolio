@@ -1,11 +1,12 @@
 ﻿@using AmidPortfolio.Components.Cards
+@implements IDisposable
 <MudContainer MaxWidth="MaxWidth.ExtraLarge" >
     <MudStack AlignItems="AlignItems.Center" Style="padding-left:10%; padding-right:10%;">
         <MudStack Class="mb-7" AlignItems="AlignItems.Center" Spacing="1" data-aos="fade-up"
              data-aos-duration="1000">
             <MudText Typo="Typo.h2"
                  Align="Align.Center"
-                     Class="">
+                     Class=@($"gradient-text-title mb-6 {GradientService.CurrentGradient}")>
             Portfolio Showcase
             </MudText>
 
@@ -215,5 +216,17 @@
 @code
 {
     int activeIndex = 0;
+    protected override void OnInitialized()
+    {
+        GradientService.OnChange += Refresh;
+    }
+    private void Refresh()
+    {
+        InvokeAsync(StateHasChanged);
+    }
 
+    public void Dispose()
+    {
+        GradientService.OnChange -= Refresh;
+    }
 }

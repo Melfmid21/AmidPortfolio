@@ -1,10 +1,12 @@
-﻿<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="" >
+﻿@implements IDisposable
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="" >
     <MudStack AlignItems="AlignItems.Center" Style="padding-left:10%; padding-right:10%;">
         <MudStack data-aos="zoom-in-up"
              data-aos-duration="600">
             <MudText Typo="Typo.h2"
                      Align="Align.Center"
-                     Class="gradient-text-title mb-6">
+                     Class=@($"gradient-text-title mb-6 {GradientService.CurrentGradient}")>
                 About Me
             </MudText>
         </MudStack>
@@ -261,16 +263,7 @@
             background-position: 100%;
         }
     } */
-    .gradient-text-title {
-        background: linear-gradient( 90deg, #8B5CF6, #3B82F6 );
-        font-weight: 800;
-        font-size: clamp(3rem, 5vw, 5rem);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        transition: all 1s ease;
-    }
+
 
    
 
@@ -455,3 +448,18 @@
         }
 </style>
 
+@code {
+    protected override void OnInitialized()
+    {
+        GradientService.OnChange += Refresh;
+    }
+    private void Refresh()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        GradientService.OnChange -= Refresh;
+    }
+}
