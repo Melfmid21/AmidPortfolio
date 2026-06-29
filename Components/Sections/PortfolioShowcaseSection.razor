@@ -93,7 +93,7 @@
              @*    <MudButton class="ml-2 see-more-button" Variant="Variant.Outlined" EndIcon="@Icons.Material.Filled.ArrowDownward">
                     <MudText>See More</MudText>
                 </MudButton> *@
-                <MudButton
+                <MudButton onclick="@(() => Snackbar.Add("Under development. Feature will add soon.", Severity.Info))"
                            EndIcon="@Icons.Material.Filled.ArrowDownward"
                            Variant="Variant.Outlined"
                            Class="see-more-button ml-3 rounded-lg" Size="Size.Small"

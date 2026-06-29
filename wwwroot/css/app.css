@@ -154,3 +154,84 @@ code {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+
+/**/
+/* Fullscreen loader */
+.portfolio-loader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    overflow: hidden;
+}
+
+
+/* Logo */
+.loader-logo {
+    width: 180px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    animation: logoFloat 2.5s ease-in-out infinite;
+    border-radius: .75rem;
+}
+
+/* Progress bar */
+.loader-bar {
+    width: 220px;
+    height: 5px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255,255,255,.08);
+    position: relative;
+    z-index: 2;
+}
+
+    /* Animated fill */
+    .loader-bar span {
+        display: block;
+        width: 40%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient( 90deg, #6366f1, #a855f7 );
+        animation: loadingBar 1.2s infinite ease-in-out;
+    }
+
+.loader-text {
+    color: rgba(255,255,255,.65);
+    font-family: "DM Mono", monospace;
+    letter-spacing: .3rem;
+    text-transform: uppercase;
+    font-size: .8rem;
+    z-index: 2;
+}
+
+/* Logo animation */
+@keyframes logoFloat {
+
+    0%,100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 15px rgba(168,85,247,.35));
+    }
+
+    50% {
+        transform: translateY(-8px);
+        filter: drop-shadow(0 0 30px rgba(168,85,247,.6));
+    }
+}
+
+/* Progress animation */
+@keyframes loadingBar {
+
+    0% {
+        transform: translateX(-220%);
+    }
+
+    100% {
+        transform: translateX(520%);
+    }
+}

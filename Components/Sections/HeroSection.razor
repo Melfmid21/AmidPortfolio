@@ -3,7 +3,8 @@
 <MudContainer MaxWidth="MaxWidth.Large">
         <MudGrid Justify="Justify.Center">
 
-            <MudItem xs="12" md="6">
+        <MudItem xs="12" md="6" data-aos="fade-up"
+                 data-aos-duration="600">
 
             <MudPaper Elevation="8" Class="profile-card" style="@($"--border-color:{GradientService.CurrentTheme.Color}")">
 
@@ -19,14 +20,16 @@
 
             <MudItem xs="12" md="6">
 
-                <MudText Typo="Typo.h1" Class="hero-title">
+            <MudText Typo="Typo.h1" Class="hero-title" data-aos="fade-up"
+                     data-aos-duration="600">
                     Software
                 <span class=@($"gradient-text") style="@($"--text-bg:{GradientService.CurrentTheme.Background}")">
                         Developer
                     </span>
                 </MudText>
 
-                <MudText Typo="Typo.h5" Class="mt-2">
+            <MudText Typo="Typo.h5" Class="mt-2" data-aos="fade-up"
+                     data-aos-duration="800">
                     <span id="typed-text"></span>
                 </MudText>
 
@@ -34,24 +37,27 @@
                 Software Developer | ASP.NET Core | Blazor | Embedded Systems
             </MudText> *@
 
-                <MudText Typo="Typo.body1" Class="mt-4 discription">
+            <MudText Typo="Typo.body1" Class="mt-4 discription" data-aos="fade-up"
+                     data-aos-duration="1000">
                     Developing modern web applications with .NET and Blazor,
                     while building innovative embedded and IoT solutions.
                 </MudText>
 
-                <MudStack Row="true" Spacing="2" Class="mt-6">
+            <MudStack Row="true" Spacing="2" Class="mt-6" data-aos="fade-up"
+                      data-aos-duration="1200">
 
-                <MudButton Class="hero-btn" Style="@($"--hero-color:{GradientService.CurrentTheme.Color}; --hero-color2:{GradientService.CurrentTheme.Secondary};")" EndIcon="@Icons.Material.Outlined.ArrowDownward" OnClick="@(() => Go("portfolio"))">
-                        <MudText Typo="Typo.body1" Style="color: oklch(.928 .006 264.531);">See my work</MudText>
-                    </MudButton>
+                    <MudButton Class="hero-btn" Style="@($"--hero-color:{GradientService.CurrentTheme.Color}; --hero-color2:{GradientService.CurrentTheme.Secondary};")" EndIcon="@Icons.Material.Outlined.ArrowDownward" OnClick="@(() => Go("portfolio"))">
+                            <MudText Typo="Typo.body1" Style="color: oklch(.928 .006 264.531);">See my work</MudText>
+                        </MudButton>
 
-                <MudButton Class="hero-btn" Style="@($"--hero-color:{GradientService.CurrentTheme.Color}; --hero-color2:{GradientService.CurrentTheme.Secondary};")" EndIcon="@Icons.Material.Outlined.Email" OnClick="@(() => Go("contact"))">
-                        <MudText Typo="Typo.body1" Style="color: oklch(.928 .006 264.531);">Contact</MudText>
-                    </MudButton>
+                    <MudButton Class="hero-btn" Style="@($"--hero-color:{GradientService.CurrentTheme.Color}; --hero-color2:{GradientService.CurrentTheme.Secondary};")" EndIcon="@Icons.Material.Outlined.Email" OnClick="@(() => Go("contact"))">
+                            <MudText Typo="Typo.body1" Style="color: oklch(.928 .006 264.531);">Contact</MudText>
+                        </MudButton>
 
                 </MudStack>
 
-                <MudStack Row Spacing="1" class="mt-4">
+            <MudStack Row Spacing="1" class="mt-4" data-aos="fade-up"
+                      data-aos-duration="1400">
                     <MudIconButton Href="@github" Target="_blank" Icon="@Icons.Custom.Brands.GitHub" aria-label="github" />
                     <MudIconButton Href="@facebook" Target="_blank" Icon="@Icons.Custom.Brands.Facebook" aria-label="facebook" />
                     <MudIconButton Href="@tiktok" Target="_blank" Icon="@Icons.Custom.Brands.TikTok" aria-label="tiktok" />
